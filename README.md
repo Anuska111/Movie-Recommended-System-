@@ -12,54 +12,38 @@
 
 <img src="https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=for-the-badge&logo=pandas&logoColor=white">
 
-<img src="https://img.shields.io/badge/NumPy-Scientific%20Computing-013243?style=for-the-badge&logo=numpy&logoColor=white">
-
 <img src="https://img.shields.io/badge/TMDB-API-01B4E4?style=for-the-badge&logo=themoviedatabase&logoColor=white">
 
 <img src="https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white">
 
-<img src="https://img.shields.io/badge/Git-GitHub-181717?style=for-the-badge&logo=git&logoColor=white">
-
-</p>
-
-<p align="center">
-
-<strong>🎥 Discover movies. 🤖 Get intelligent recommendations. 🍿 Find your next favourite.</strong>
+<img src="https://img.shields.io/badge/Git-GitHub-F05032?style=for-the-badge&logo=git&logoColor=white">
 
 </p>
 
 ---
 
-# 🚀 Live Demo
+## 🌐 Live Demo
 
-<p align="center">
+🎬 **Try the Movie Recommender System**
 
-<a href="YOUR_STREAMLIT_APP_LINK_HERE">
-
-<img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg">
-
-</a>
-
-</p>
-
-👉 **[Launch the Live Movie Recommender](YOUR_STREAMLIT_APP_LINK_HERE)**
+👉 [Launch Movie Recommender](YOUR_STREAMLIT_APP_LINK_HERE)
 
 > Replace `YOUR_STREAMLIT_APP_LINK_HERE` with your deployed Streamlit application URL.
 
 ---
 
-# 📓 Jupyter Notebook
+## 📓 Jupyter Notebook
 
-The complete machine learning workflow is available in the Jupyter Notebook.
+The complete machine learning workflow is implemented in the Jupyter Notebook.
 
-### The notebook includes:
+The notebook contains the complete recommendation-system pipeline, including:
 
 - Dataset loading
-- Data exploration
 - Data preprocessing
+- Feature selection
 - Feature engineering
-- Genre processing
-- Keyword processing
+- Genres processing
+- Keywords processing
 - Cast processing
 - Crew processing
 - Movie tag creation
@@ -68,7 +52,7 @@ The complete machine learning workflow is available in the Jupyter Notebook.
 - Recommendation logic
 - Model/data serialization
 
-👉 **[View Complete Jupyter Notebook](YOUR_GITHUB_NOTEBOOK_LINK_HERE)**
+👉 [View Jupyter Notebook](YOUR_JUPYTER_NOTEBOOK_LINK_HERE)
 
 ---
 
@@ -86,6 +70,7 @@ The complete machine learning workflow is available in the Jupyter Notebook.
 - [Cosine Similarity](#-cosine-similarity)
 - [Recommendation Logic](#-recommendation-logic)
 - [TMDB API Integration](#-tmdb-api-integration)
+- [Movie Details, Cast, Crew & Trailers](#-movie-details-cast-crew--trailers)
 - [Streamlit Application](#-streamlit-application)
 - [Project Structure](#-project-structure)
 - [Technology Stack](#-technology-stack)
@@ -102,531 +87,675 @@ The complete machine learning workflow is available in the Jupyter Notebook.
 - [Author](#-author)
 
 ---
+
 # 📌 Project Overview
 
-The **Movie Recommender System** is an end-to-end machine learning web application that recommends movies similar to a movie selected by the user.
+The **Movie Recommender System** is an end-to-end machine learning web application that recommends movies based on the similarity of their content and metadata.
 
-The system uses a **Content-Based Filtering** approach and analyzes movie metadata such as:
+The project follows a **Content-Based Filtering** approach.
+
+Instead of relying on user ratings, watch history, or collaborative filtering, the system analyzes movie-related information such as:
 
 - 🎭 Genres
 - 🔑 Keywords
 - 🎬 Cast
 - 🎥 Crew
 
-These features are combined into a unified movie representation and transformed into numerical vectors using **CountVectorizer**. **Cosine Similarity** is then used to calculate the similarity between movies and identify the **Top 5 most similar movies**.
+These attributes are processed and combined into a unified movie representation known as **movie tags**.
 
-The recommendation engine is integrated with the **TMDB API** to retrieve additional movie information such as posters, ratings, genres, cast, crew, movie descriptions and available trailers.
+The generated tags are converted into numerical vectors using **CountVectorizer** from Scikit-learn.
 
-The complete system is deployed through an interactive **Streamlit application**, providing users with a simple and engaging interface for discovering movies.
+The similarity between movies is then calculated using **Cosine Similarity**.
 
-### 🔄 Overall Workflow
+When a user selects a movie, the recommendation engine searches the similarity matrix, ranks movies according to their similarity score, and returns the **Top 5 most similar movies**.
 
-```text
-Movie Dataset
-      ↓
-Data Preprocessing
-      ↓
-Feature Engineering
-      ↓
-Genres + Keywords + Cast + Crew
-      ↓
-Movie Tags
-      ↓
-CountVectorizer
-      ↓
-Feature Vectors
-      ↓
-Cosine Similarity
-      ↓
-Top 5 Recommendations
-      ↓
-TMDB API
-      ↓
-Movie Details + Posters + Trailers
-      ↓
-Streamlit Application
+The application is connected with the **TMDB API** to retrieve additional movie information such as posters, ratings, genres, cast, crew, descriptions and available trailer information.
 
+Finally, the complete recommendation system is integrated into a **Streamlit web application**, providing an interactive interface for users.
 
-### 2. Project Objective
+---
 
-```markdown
 # 🎯 Project Objective
 
-The objective of this project is to develop a **smart, interactive and user-friendly movie discovery platform** that can identify movies similar to a user's selected movie.
+The primary objective of this project is to build a practical and interactive recommendation system that converts movie metadata into meaningful similarity relationships.
 
-The project focuses on transforming movie metadata into meaningful machine-learning features and using similarity-based analysis to generate relevant recommendations.
+The project aims to:
 
-### Core Objectives
+- Build a content-based movie recommendation engine.
+- Combine multiple movie metadata features.
+- Transform textual movie information into numerical vectors.
+- Calculate similarity between movie representations.
+- Rank movies based on similarity scores.
+- Generate Top 5 movie recommendations.
+- Integrate TMDB API for dynamic movie information.
+- Display recommendations through an interactive Streamlit interface.
+- Demonstrate an end-to-end Data Science and Machine Learning workflow.
 
-- 🎬 Develop a **Content-Based Movie Recommendation Engine**.
-- 🧠 Analyze multiple movie attributes including genres, keywords, cast and crew.
-- 🔤 Apply **NLP-based text vectorization** using CountVectorizer.
-- 📐 Calculate movie similarity using Cosine Similarity.
-- 🎯 Generate the **Top 5 most similar movie recommendations**.
-- 🌐 Integrate the **TMDB API** for dynamic movie information.
-- 🖥️ Build an interactive **Streamlit web application**.
-- 🔄 Demonstrate an end-to-end workflow from data preprocessing to application deployment.
+### Core Concept
 
-### End Goal
+Movie Metadata
 
-```text
-Raw Movie Data
-      ↓
+↓  
+
 Feature Engineering
-      ↓
-NLP / Vectorization
-      ↓
-Similarity Analysis
-      ↓
-Recommendation Engine
-      ↓
+
+↓
+
+Movie Tags
+
+↓
+
+CountVectorizer
+
+↓
+
+Numerical Feature Vectors
+
+↓
+
+Cosine Similarity
+
+↓
+
+Similarity Matrix
+
+↓
+
+Top-5 Recommendations
+
+↓
+
 TMDB API
-      ↓
-Interactive Streamlit Application
 
+↓
 
-### 3. Key Features
+Streamlit Web Application
 
-```markdown
+---
+
 # ✨ Key Features
 
-The application provides the following major features:
+### 🎯 Content-Based Recommendation
 
-### 🎯 Content-Based Recommendations
-Recommends movies based on the similarity of their content and metadata.
+Recommends movies based on similarity between movie metadata.
 
-### 🎭 Multi-Feature Movie Analysis
-Uses multiple movie attributes:
+### 🎭 Multi-Feature Movie Representation
+
+The recommendation engine uses multiple features including:
 
 - Genres
 - Keywords
 - Cast
 - Crew
 
-### 🧠 NLP-Based Recommendation Engine
-Uses textual movie information to create meaningful feature representations.
+### 🔤 Text Vectorization
 
-### 🔤 CountVectorizer
-Converts movie tags into numerical feature vectors.
+Uses Scikit-learn's `CountVectorizer` to transform movie tags into numerical vectors.
 
 ### 📐 Cosine Similarity
-Calculates similarity between movie vectors and ranks relevant movies.
 
-### 🎬 Top-5 Recommendations
-Returns the five movies with the highest similarity scores.
+Calculates similarity between movie vectors.
+
+### 🏆 Top-5 Recommendations
+
+Returns the five most similar movies for the selected movie.
 
 ### 🌐 TMDB API Integration
-Fetches dynamic movie information from TMDB.
 
-### 🖼️ Dynamic Movie Posters
+Retrieves dynamic information about movies from TMDB.
+
+### 🖼️ Movie Posters
+
 Displays posters for recommended movies.
 
 ### ⭐ Movie Information
-Provides additional information such as ratings, genres, cast, crew and descriptions.
 
-### ▶️ Trailer Integration
-Displays available movie trailers when trailer information is available.
+Can retrieve movie information such as:
 
-### 🖥️ Streamlit Interface
-Provides an interactive web-based interface for users.
+- Ratings
+- Genres
+- Overview
+- Cast
+- Crew
 
-### 📓 Jupyter Notebook
-Contains the complete machine learning and recommendation-system development workflow.
+### 🎥 Trailer Support
+
+Available trailer information can be integrated into the Streamlit interface.
+
+### 🖥️ Interactive Web Interface
+
+Users can select a movie and generate recommendations through Streamlit.
+
+---
 
 # 🏗️ System Architecture
 
-The system follows a complete end-to-end machine learning architecture.
+The complete system follows this architecture:
 
-```text
-                         ┌──────────────────────┐
-                         │    Movie Dataset     │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │ Data Preprocessing   │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │ Feature Engineering  │
-                         │                      │
-                         │ • Genres             │
-                         │ • Keywords           │
-                         │ • Cast               │
-                         │ • Crew               │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │    Movie Tags        │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │   CountVectorizer    │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │   Feature Vectors    │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │  Cosine Similarity   │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │ Recommendation       │
-                         │ Engine               │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │      TMDB API        │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │    Streamlit App     │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                                  USER
+User
 
-### 5. How the Recommendation System Works
+↓
 
-```markdown
+Streamlit Movie Selection
+
+↓
+
+Selected Movie
+
+↓
+
+Recommendation Function
+
+↓
+
+Movie Index Lookup
+
+↓
+
+Similarity Vector
+
+↓
+
+Similarity Ranking
+
+↓
+
+Top-5 Movies
+
+↓
+
+TMDB API
+
+↓
+
+Movie Posters + Details + Cast + Crew + Trailer Information
+
+↓
+
+Streamlit Results
+
+---
+
 # 🔄 How the Recommendation System Works
 
-The recommendation process follows a sequence of data-processing and similarity-analysis steps.
+The recommendation process can be divided into several stages.
 
-### Step 1 — User Selects a Movie
+### Step 1 — Movie Dataset
 
-The user selects a movie from the Streamlit movie selection interface.
+The system starts with movie metadata containing information such as genres, keywords, cast and crew.
 
-### Step 2 — Find Movie Index
+### Step 2 — Data Preprocessing
 
-The system identifies the index of the selected movie in the movie dataset.
+The relevant movie attributes are cleaned and transformed into a suitable format.
 
-### Step 3 — Retrieve Similarity Scores
+### Step 3 — Feature Engineering
 
-The corresponding row from the precomputed similarity matrix is retrieved.
+Important movie attributes are combined to create a unified textual representation.
 
-### Step 4 — Rank Movies
+### Step 4 — Movie Tags
 
-Movies are sorted according to their similarity scores in descending order.
+The selected features are combined into a `tags` representation.
 
-### Step 5 — Select Top 5
+Example:
 
-The selected movie itself is excluded and the next five most similar movies are returned.
+Genres + Keywords + Cast + Crew
 
-### Step 6 — Fetch Movie Information
+↓
 
-The TMDB API is used to retrieve additional information for the recommended movies.
+Movie Tags
 
-### Step 7 — Display Results
+### Step 5 — Vectorization
 
-The recommendations are displayed through the Streamlit interface.
+CountVectorizer converts the movie tags into numerical vectors.
 
-```text
-User Selects Movie
-        ↓
-Find Movie Index
-        ↓
-Retrieve Similarity Scores
-        ↓
-Sort Similarity Scores
-        ↓
-Remove Selected Movie
-        ↓
-Select Top 5 Movies
-        ↓
-Fetch TMDB Information
-        ↓
-Display Recommendations
+### Step 6 — Similarity Calculation
 
+Cosine Similarity calculates the similarity between movie vectors.
 
-### 6. Machine Learning Pipeline
+### Step 7 — Recommendation
 
-```markdown
+For a selected movie, the system retrieves its similarity scores and ranks other movies.
+
+### Step 8 — Top 5 Selection
+
+The five highest-ranked similar movies are selected.
+
+### Step 9 — TMDB API
+
+TMDB is used to retrieve additional movie information.
+
+### Step 10 — Streamlit Display
+
+The recommendations are displayed through the web application.
+
+---
+
 # 🤖 Machine Learning Pipeline
 
-The machine learning workflow consists of multiple stages that transform raw movie metadata into a recommendation system.
+The complete machine learning pipeline can be represented as:
 
-```text
-Raw Dataset
-     ↓
+Raw Movie Dataset
+
+↓
+
 Data Loading
-     ↓
+
+↓
+
 Data Cleaning
-     ↓
+
+↓
+
 Feature Selection
-     ↓
+
+↓
+
 Feature Engineering
-     ↓
-Movie Tag Creation
-     ↓
+
+↓
+
+Movie Tags
+
+↓
+
 Text Vectorization
-     ↓
+
+↓
+
+CountVectorizer
+
+↓
+
+Feature Vectors
+
+↓
+
 Cosine Similarity
-     ↓
+
+↓
+
 Similarity Matrix
-     ↓
+
+↓
+
 Recommendation Function
-     ↓
+
+↓
+
 Top-5 Recommendations
 
-Pipeline Components
-| Stage                  | Description                         |
-| ---------------------- | ----------------------------------- |
-| Data Loading           | Load movie metadata                 |
-| Data Preprocessing     | Clean and prepare relevant columns  |
-| Feature Selection      | Select useful movie attributes      |
-| Feature Engineering    | Combine relevant metadata           |
-| Tag Generation         | Create unified movie tags           |
-| Vectorization          | Convert text into numerical vectors |
-| Similarity Calculation | Calculate movie-to-movie similarity |
-| Ranking                | Rank movies based on similarity     |
-| Recommendation         | Return Top 5 movies                 |
+---
 
-
-### 7. Content-Based Filtering
-
-```markdown
 # 🎯 Content-Based Filtering
 
-This project implements a **Content-Based Filtering** recommendation approach.
+This project implements a **Content-Based Filtering** recommendation technique.
 
-Instead of relying on user ratings, purchase history or other users' preferences, the system recommends movies based on the characteristics of the selected movie.
+Content-based recommendation systems recommend items that are similar to an item selected by the user.
 
-### Features Used
+In this project, similarity is based on movie metadata rather than user behaviour.
 
-```text
-Genres
-   +
-Keywords
-   +
-Cast
-   +
-Crew
-   ↓
-Movie Representation
+### Example
 
-If two movies have similar metadata, they are likely to receive a higher similarity score.
-Example
+Suppose a user selects a movie containing:
+
+- Action
+- Adventure
+- Science Fiction
+- Space
+- Specific actors
+- Related keywords
+
+The system compares its feature representation against other movies and recommends movies with similar representations.
+
+### Concept
+
 Selected Movie
-├── Action
-├── Adventure
-├── Sci-Fi
-├── Space
-└── Similar Cast
 
-        ↓
+↓
 
-Recommended Movie
-├── Action
-├── Adventure
-├── Sci-Fi
-├── Space
-└── Similar Cast
+Movie Features
 
+↓
 
-### 8. Feature Engineering
+Feature Representation
 
-```markdown
+↓
+
+Compare With Other Movies
+
+↓
+
+Calculate Similarity
+
+↓
+
+Rank Similar Movies
+
+↓
+
+Recommend Top Movies
+
+---
+
 # 🛠️ Feature Engineering
 
-Feature engineering is an important part of the recommendation system because the quality of the movie representation directly affects the quality of recommendations.
+Feature engineering is one of the most important stages of the recommendation system.
 
-The project combines multiple movie attributes into a unified textual representation.
+The project combines multiple movie attributes to generate a unified representation.
 
-### Features Used
+### Movie Features
 
 | Feature | Role |
 |---|---|
-| 🎭 Genres | Represents movie categories |
-| 🔑 Keywords | Represents themes and concepts |
-| 🎬 Cast | Represents actors associated with the movie |
-| 🎥 Crew | Represents directors and other important crew information |
+| Genres | Represents movie categories |
+| Keywords | Represents themes and concepts |
+| Cast | Represents actors associated with the movie |
+| Crew | Represents relevant crew information |
 
-### Feature Combination
+These features are combined to create the movie's textual representation.
 
-```text
+### Feature Transformation
+
 Genres
-   +
+
++
+
 Keywords
-   +
+
++
+
 Cast
-   +
+
++
+
 Crew
-   ↓
-Combined Movie Tags
 
-The resulting movie tags are then passed to the text-vectorization stage.
+↓
 
-This allows the recommendation engine to compare movies using multiple dimensions instead of depending on a single attribute.
+Movie Tags
 
+↓
 
-### 9. CountVectorizer
+Text Representation
 
-```markdown
+↓
+
+Numerical Vector
+
+---
+
 # 🔤 CountVectorizer
 
-The project uses **CountVectorizer** from Scikit-learn to convert textual movie tags into numerical feature vectors.
+The project uses **CountVectorizer** from Scikit-learn to convert movie tags into numerical representations.
 
-Machine learning algorithms cannot directly perform mathematical similarity calculations on raw text. Therefore, movie tags need to be transformed into numerical representations.
+Machine learning algorithms cannot directly calculate vector similarity from raw textual data.
+
+Therefore, movie tags are transformed into feature vectors.
 
 ### Process
 
-```text
 Movie Tags
-     ↓
+
+↓
+
 Tokenization
 
-     ↓
+↓
+
 Vocabulary Creation
-     ↓
+
+↓
+
 Word Frequency Representation
-     ↓
+
+↓
+
 Numerical Feature Vectors
 
-Implementation
-from sklearn.feature_extraction.text import CountVectorizer
-cv = CountVectorizer()
-vectors = cv.fit_transform(movies['tags'])
+### Implementation Concept
 
+`CountVectorizer` creates a vocabulary from the movie tags and represents each movie according to the occurrence of vocabulary terms.
 
-### 10. Cosine Similarity
+This allows movies to be compared mathematically.
 
-```markdown
+---
+
 # 📐 Cosine Similarity
 
-**Cosine Similarity** is used to calculate how similar two movie feature vectors are.
+The recommendation system uses **Cosine Similarity** to calculate the similarity between movie vectors.
 
-The method measures the cosine of the angle between two vectors.
+Cosine Similarity measures the cosine of the angle between two vectors.
 
 ### Formula
 
-```text
-              A · B
-Similarity = ─────────
-             ||A|| ||B||
+Similarity(A,B) = (A · B) / (||A|| × ||B||)
 
 Where:
 
-A = Feature vector of Movie A
-B = Feature vector of Movie B
-A · B = Dot product
-||A|| and ||B|| = Magnitudes of the vectors
+- `A` = Vector representation of Movie A
+- `B` = Vector representation of Movie B
+- `A · B` = Dot product
+- `||A||` = Magnitude of vector A
+- `||B||` = Magnitude of vector B
 
-Implementation
-from sklearn.metrics.pairwise import cosine_similarity
-similarity = cosine_similarity(vectors)
+### Implementation
 
-The resulting similarity matrix stores the similarity relationship between movies.
-A higher similarity score indicates that two movies have more similar feature representations.
+The similarity matrix is generated using Scikit-learn's pairwise similarity functionality.
 
+The resulting matrix stores similarity relationships between movies.
 
-### 11. Recommendation Logic
+### Why Cosine Similarity?
 
-```markdown
+Cosine Similarity is useful for text-based representations because it focuses on the orientation of vectors rather than their absolute magnitude.
+
+This makes it suitable for comparing movie tag representations.
+
+---
+
 # 🎯 Recommendation Logic
 
-The recommendation function uses the precomputed similarity matrix to identify movies that are most similar to the selected movie.
+The recommendation engine identifies the selected movie and retrieves its corresponding similarity scores.
 
-### Core Process
+The basic logic is:
 
-```python
-movie_index = movies[movies['title'] == movie].index[0]
+1. Find the selected movie.
+2. Retrieve its index.
+3. Access its similarity vector.
+4. Pair movie indices with similarity scores.
+5. Sort the movies by similarity.
+6. Exclude the selected movie itself.
+7. Select the Top 5 movies.
+8. Retrieve additional information through TMDB.
+9. Display the recommendations.
 
-distance = similarity[movie_index]
+### Recommendation Flow
 
-movies_list = sorted(
-    list(enumerate(distance)),
-    reverse=True,
-    key=lambda x: x[1]
-)[1:6]
-
-Logic Breakdown
 Selected Movie
-      ↓
-Find Movie Index
-      ↓
-Retrieve Similarity Vector
-      ↓
-Pair Movie Index + Similarity Score
-      ↓
-Sort in Descending Order
-      ↓
-Exclude Selected Movie
-      ↓
-Select Top 5
-      ↓
-Return Recommendations
 
-The recommendation engine therefore converts similarity scores into a ranked list of movies that are most closely related to the user's selection.
+↓
 
+Movie Index
 
-### 12. TMDB API Integration
+↓
 
-```markdown
+Similarity Scores
+
+↓
+
+Similarity Ranking
+
+↓
+
+Top Similar Movies
+
+↓
+
+Top 5 Recommendations
+
+---
+
 # 🌐 TMDB API Integration
 
-The **TMDB API** is integrated into the application to enrich the machine learning recommendations with dynamic movie information.
+The project integrates the **TMDB API** to enrich the recommendation experience.
 
-The recommendation model determines **which movies are similar**, while TMDB provides additional information about those movies.
+The machine learning model determines which movies should be recommended, while TMDB provides additional information about those movies.
 
-### Integration Flow
+### TMDB Integration Flow
 
-```text
 Recommendation Engine
-        ↓
+
+↓
+
 Recommended Movie
-        ↓
+
+↓
+
 TMDB API Request
-        ↓
+
+↓
+
 JSON Response
-        ↓
-Movie Information
-        ↓
+
+↓
+
+Movie Metadata
+
+↓
+
 Streamlit UI
 
+### Information Retrieved
 
-### 13. Streamlit Application
+Depending on the API response and implementation, the application can use information such as:
 
-```markdown
+- Movie poster
+- Movie title
+- Rating
+- Genres
+- Overview
+- Cast
+- Crew
+- Trailer/video information
+
+This makes the application more visually appealing and informative than displaying movie titles alone.
+
+---
+
+# 🎥 Movie Details, Cast, Crew & Trailers
+
+The application can use TMDB endpoints to retrieve additional movie information.
+
+### Movie Details
+
+Movie details can include:
+
+- Title
+- Overview
+- Rating
+- Genres
+- Release information
+
+### Cast
+
+The cast information can be used to display the actors associated with a movie.
+
+### Crew
+
+Crew information can be used to identify important contributors such as directors and other crew members.
+
+### Videos / Trailers
+
+TMDB's video information can be used to identify available movie trailers.
+
+The application can then integrate available trailer information into the Streamlit interface.
+
+### User Experience
+
+Movie Recommendation
+
+↓
+
+Movie Poster
+
+↓
+
+Movie Details
+
+↓
+
+Cast & Crew
+
+↓
+
+Available Trailer
+
+This creates a more complete movie-discovery experience.
+
+---
+
 # 🖥️ Streamlit Application
 
-The machine learning recommendation engine is integrated into an interactive **Streamlit web application**.
+The machine learning model is deployed through a Streamlit web interface.
 
-The application provides a simple interface where users can select a movie and generate recommendations without directly interacting with the underlying Python code.
+The application allows the user to:
 
-### User Flow
+1. Open the application.
+2. Select a movie.
+3. Click the recommendation button.
+4. Generate Top-5 recommendations.
+5. View movie posters.
+6. Retrieve additional movie information through TMDB.
+7. Explore available movie information and trailers.
+
+### Application Flow
+
+User
+
+↓
+
+Select Movie
+
+↓
+
+Click Recommend
+
+↓
+
+Recommendation Engine
+
+↓
+
+Top 5 Movies
+
+↓
+
+TMDB API
+
+↓
+
+Posters / Details / Cast / Crew / Trailer
+
+↓
+
+Interactive Streamlit Interface
+
+---
+
+# 📁 Project Structure
 
 ```text
-                 🎬 Movie Recommender
-                         │
-                         ▼
-                 Select a Movie
-                         │
-                         ▼
-                  Click Recommend
-                         │
-                         ▼
-              Recommendation Engine
-                         │
-                         ▼
-                  Top 5 Movies
-                         │
-          ┌──────────────┼──────────────┐
-          ▼              ▼              ▼
-       Posters         Details       Trailers
-          │              │              │
-          └──────────────┼──────────────┘
-                         ▼
-                      User
-
-
+Movie-Recommended-System-
+│
+├── app.py
+│
+├── Movie_Recommender_System.ipynb
+│
+├── movie_dict.pkl
+│
+├── similarity.pkl
+│
+├── requirements.txt
+│
+├── .gitignore
+│
+└── README.md
