@@ -29,15 +29,20 @@ POSTER_BASE_URL = "https://image.tmdb.org/t/p/w500"
 # LOAD PICKLE FILES
 # =========================================================
 
-movie_dict = pickle.load(
-    open("movie_dict.pkl", "rb")
-)
+import os
+import pickle
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Load movie dictionary
+with open(os.path.join(BASE_DIR, "movie_dict.pkl"), "rb") as file:
+    movie_dict = pickle.load(file)
 
 movies = pd.DataFrame(movie_dict)
 
-similarity = pickle.load(
-    open("similarity.pkl", "rb")
-)
+# Load similarity matrix
+with open(os.path.join(BASE_DIR, "similarity.pkl"), "rb") as file:
+    similarity = pickle.load(file)
 
 
 # =========================================================
