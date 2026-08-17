@@ -64,13 +64,11 @@ The application is integrated with the **TMDB API** to provide rich movie inform
 
 # 🧠 How the Recommendation System Works
 
-The recommendation engine follows a complete Machine Learning pipeline:
+The recommendation engine follows a complete Machine Learning pipeline, starting from movie metadata preprocessing and ending with personalized movie recommendations.
 
 ```mermaid
 flowchart TD
-
     A["🎬 Movie Dataset"] --> B["🧹 Data Preprocessing"]
-
     B --> C["⚙️ Feature Engineering"]
 
     C --> C1["🎭 Genres"]
@@ -84,15 +82,10 @@ flowchart TD
     C4 --> D
 
     D --> E["🔤 Text Vectorization"]
-
     E --> F["📐 Cosine Similarity"]
-
     F --> G["📊 Similarity Ranking"]
-
     G --> H["🏆 Top 5 Recommendations"]
-
     H --> I["🌐 Streamlit Application"]
-
     I --> J["🎬 TMDB API"]
 
     J --> K["🖼️ Posters"]
@@ -100,34 +93,33 @@ flowchart TD
     J --> M["👥 Cast & Director"]
     J --> N["📖 Overview"]
     J --> O["▶️ Trailer"]
+```
 
-🖥️ Streamlit Application
-The Machine Learning model is converted into an interactive web application using Streamlit.
+---
 
-User Flow
+# 🖥️ Streamlit Application
+
+The trained recommendation model is integrated into an interactive **Streamlit web application**, allowing users to select a movie and instantly explore similar movies with detailed information.
+
+## 🔄 User Flow
+
+```mermaid
 flowchart LR
-
     A["👤 User"] --> B["🎬 Select Movie"]
-
     B --> C["🔘 Recommend"]
-
     C --> D["🧠 Recommendation Engine"]
-
     D --> E["🏆 Top 5 Movies"]
-
     E --> F["🌐 TMDB API"]
 
     F --> G["🖼️ Movie Cards"]
-
     G --> H["⭐ Rating"]
-
     G --> I["🎭 Genre"]
-
     G --> J["👥 Cast"]
-
     G --> K["🎬 Director"]
-
     G --> L["▶️ Trailer"]
+```
+
+---
 
 # 🛠️ Tech Stack
 
@@ -146,9 +138,14 @@ flowchart LR
 | 🐙 **Repository** | GitHub |
 | ☁️ **Deployment** | Streamlit Cloud |
 
-**📊 End-to-End Workflow**
-flowchart TD
+---
 
+# 📊 End-to-End Workflow
+
+The complete workflow combines the Machine Learning recommendation engine, optimized model storage, Streamlit interface, and TMDB API.
+
+```mermaid
+flowchart TD
     A["📂 Dataset"] --> B["🧹 Preprocessing"]
     B --> C["⚙️ Feature Engineering"]
     C --> D["🔤 Text Vectorization"]
@@ -157,10 +154,8 @@ flowchart TD
     F --> G["🗜️ Compress similarity.gz"]
 
     G --> H["🌐 Streamlit App"]
-
     H --> I["👤 User Selects Movie"]
     I --> J["🏆 Generate Recommendations"]
-
     J --> K["🎬 TMDB API"]
 
     K --> L["🖼️ Posters"]
@@ -169,6 +164,9 @@ flowchart TD
     K --> O["👥 Cast"]
     K --> P["🎬 Director"]
     K --> Q["▶️ Trailer"]
+```
+
+---
 
 # ⚠️ Current Limitations
 
@@ -179,10 +177,67 @@ flowchart TD
 | 🤝 **Content-Based Only** | The current recommendation engine relies primarily on content similarity rather than collaborative filtering. |
 | 🎬 **Metadata Dependency** | Recommendation quality depends on the availability and quality of genres, keywords, cast, and crew information. |
 | 🌐 **TMDB API Dependency** | Posters, ratings, cast, trailers, and other movie details depend on TMDB API availability. |
-| 📊 **Limited Ranking Signals** | The current ranking is primarily based on content similarity and does not combine popularity, ratings, or user behavior. |
+| 📊 **Limited Ranking Signals** | Ranking is primarily based on content similarity and does not currently combine popularity, ratings, or user behavior. |
 | 🆕 **Cold-Start for Preferences** | Since user history is not collected, the system cannot initially adapt recommendations to a specific user's taste. |
-| 🔄 **Static Recommendation Model** | The similarity data is precomputed and does not continuously learn from new user interactions. |
+| 🔄 **Static Recommendation Model** | Similarity data is precomputed and does not continuously learn from new user interactions. |
 
-👩‍💻 Author
-Anuska Biswas
-🎓 Mechanical Engineering | IIT (BHU) Varanasi
+---
+
+# 🔮 Future Improvements
+
+| Future Enhancement | Description |
+|---|---|
+| 🤝 **Hybrid Recommendation** | Combine Content-Based Filtering with Collaborative Filtering for better recommendations. |
+| 👤 **Personalized Profiles** | Learn individual preferences from ratings, likes, dislikes, and watch history. |
+| ⭐ **User Rating System** | Allow users to rate movies and use those ratings to improve recommendations. |
+| ❤️ **Favorites & Watchlist** | Allow users to save movies for later viewing. |
+| 🔍 **Advanced Search & Filters** | Filter movies by genre, rating, release year, language, popularity, and runtime. |
+| 🤖 **LLM Integration** | Add natural-language movie recommendations through a conversational AI assistant. |
+| 🧠 **Hybrid AI Ranking** | Combine similarity, popularity, ratings, and user preferences into a unified ranking system. |
+| 📊 **Recommendation Analytics** | Add analytics for popular genres, recommendation frequency, and user preferences. |
+| 🌎 **Multi-Language Support** | Extend movie discovery across multiple languages and regions. |
+| 🔄 **Dynamic Learning** | Continuously update recommendations based on new user interactions. |
+
+---
+
+# 🚀 Future AI Architecture
+
+A future version can evolve from a traditional content-based recommender into a more personalized **AI-powered recommendation platform**.
+
+```mermaid
+flowchart TD
+    A["👤 User"] --> B["💬 Natural Language Query"]
+
+    B --> C["🤖 LLM"]
+    C --> D["🎯 Extract User Preferences"]
+
+    D --> E["🧠 Recommendation Engine"]
+
+    E --> F["🎭 Content Similarity"]
+    E --> G["⭐ User Ratings"]
+    E --> H["📊 Popularity"]
+    E --> I["👤 Watch History"]
+
+    F --> J["🏆 Hybrid Ranking"]
+    G --> J
+    H --> J
+    I --> J
+
+    J --> K["🎬 Personalized Recommendations"]
+    K --> L["🌐 TMDB API"]
+    L --> M["🖼️ Posters + Details + Trailers"]
+```
+
+---
+
+# 🎯 Key Takeaways
+
+| Area | Implementation |
+|---|---|
+| 🧠 **Recommendation** | Content-Based Filtering |
+| 📐 **Similarity** | Cosine Similarity |
+| 🔤 **Text Processing** | NLP / Vectorization |
+| 🎬 **Movie Information** | TMDB API |
+| 🌐 **Application** | Streamlit |
+| 🗜️ **Optimization** | Gzip Compression |
+| ☁️ **Deployment** | Streamlit Cloud |
