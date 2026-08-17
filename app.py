@@ -42,7 +42,7 @@ with open(os.path.join(BASE_DIR, "movie_dict.pkl"), "rb") as file:
 movies = pd.DataFrame(movie_dict)
 
 # Load similarity matrix
-with gzip.open(os.path.join(BASE_DIR, "similarity.pkl.gz"), "rb") as file:
+with gzip.open(os.path.join(BASE_DIR, "similarity.gz"), "rb") as file:
     similarity = pickle.load(file)
 
 
