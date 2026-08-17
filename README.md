@@ -241,3 +241,20 @@ flowchart TD
 | 🌐 **Application** | Streamlit |
 | 🗜️ **Optimization** | Gzip Compression |
 | ☁️ **Deployment** | Streamlit Cloud |
+
+# 👩‍💻 Author
+
+<p align="center">
+
+### **Anuska Biswas**
+
+🎓 **Indian Institute of Technology (BHU), Varanasi**  
+⚙️ **Mechanical Engineering Department**
+
+</p>
+
+---
+
+<p align="center">
+  <b>🎬 Built with Python • Machine Learning • Streamlit • TMDB API</b>
+</p>
