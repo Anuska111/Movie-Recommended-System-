@@ -12,17 +12,17 @@
   <b>An end-to-end Machine Learning Movie Recommendation System</b>
   <br>
   <i>Discover movies similar to your favorites using Content-Based Filtering.</i>
-</p>
-
 <p align="center">
-  <a href="YOUR_STREAMLIT_APP_LINK">
-    <img src="https://img.shields.io/badge/🚀%20Live%20Demo-Streamlit-FF4B4B?style=for-the-badge">
-  </a>
-  <a href="https://github.com/Anuska111/Movie-Recommended-System-">
-    <img src="https://img.shields.io/badge/💻%20Source%20Code-GitHub-181717?style=for-the-badge&logo=github">
-  </a>
-</p>
 
+<a href="https://movierecommendsystemnew.streamlit.app/">
+  <img src="https://img.shields.io/badge/🚀%20Live%20Demo-Open%20Streamlit%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white">
+</a>
+
+<a href="https://github.com/Anuska111/Movie-Recommended-System-">
+  <img src="https://img.shields.io/badge/💻%20Source%20Code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+</a>
+
+</p>
 ---
 
 ## 📌 Overview
@@ -40,17 +40,6 @@ These features are processed and transformed into numerical representations. **C
 
 The application is integrated with the **TMDB API** to provide rich movie information such as posters, ratings, genres, cast, director, release date, overview, and trailers.
 
-<p align="center">
-
-<a href="https://movierecommendsystemnew.streamlit.app/">
-  <img src="https://img.shields.io/badge/🚀%20Live%20Demo-Open%20Streamlit%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white">
-</a>
-
-<a href="https://github.com/Anuska111/Movie-Recommended-System-">
-  <img src="https://img.shields.io/badge/💻%20Source%20Code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
-</a>
-
-</p>
 ---
 
 # 🚀 Project Highlights
